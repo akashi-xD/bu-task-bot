@@ -1,0 +1,4 @@
+aiogram==3.*
+caldav==1.*
+python-dotenv==1.*
+pytz==2025.*
