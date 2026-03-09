@@ -2,3 +2,4 @@ aiogram==3.*
 caldav==1.*
 python-dotenv==1.*
 pytz==2025.*
+vobject==0.9.9
