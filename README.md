@@ -2,113 +2,170 @@
 ![Docker](https://img.shields.io/badge/docker-ready-blue)
 ![Telegram](https://img.shields.io/badge/telegram-bot-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
-BU! Telegram Productivity Assistant
 
-Telegram-бот для управления расписанием, уведомлений из календаря и трекинга саморазвития.
+# BU! Productivity Assistant
 
-Бот интегрируется с CalDAV (например, Яндекс.Календарь) и отправляет уведомления о событиях, а также позволяет отслеживать ежедневный прогресс (учёба, диплом, тренировки) и получать XP.
+![Python](https://img.shields.io/badge/python-3.11-blue)
+![Docker](https://img.shields.io/badge/docker-ready-blue)
+![Telegram](https://img.shields.io/badge/telegram-bot-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
 
-Возможности
-Календарь
+A Telegram productivity assistant that integrates with CalDAV calendars and tracks daily self-development progress using a gamified XP system.
 
-уведомления о событиях из CalDAV
+The bot sends calendar notifications, tracks learning progress and helps maintain productive routines.
 
-напоминания перед началом события
+---
 
-просмотр событий на сегодня
+# Features
 
-Команды:
+### Calendar Integration
 
+- CalDAV support (Yandex, Nextcloud, etc.)
+- event reminders
+- upcoming event lookup
+- daily schedule overview
+
+Commands:
 /today
 /next
 /calendars
-Управление уведомлениями
-/start
-/on
-/off
-/status
-Трекинг прогресса
 
-Бот позволяет отслеживать ежедневный прогресс.
+---
 
-Через команду:
+### Productivity Tracking
 
+Interactive daily check-in system.
+
+Command:
 /done
 
-открывается интерактивный чек-ин с кнопками:
+Opens inline keyboard:
 
-DS +1ч / +2ч
+DS +1h
+DS +2h
 
-Диплом +1ч / +2ч
+Diploma +1h
+Diploma +2h
 
-Тренировка
+Workout
+University tasks
 
-СРС / ДЗ
 
-После сохранения бот начисляет XP.
+Progress converts into **XP points** and increases your level.
 
-Статистика
+---
+
+### Statistics
+
+Commands:
 /stats
 /level
 
-Показывает:
 
-часы обучения
+Displays:
 
-часы работы над дипломом
+- learning hours
+- diploma progress
+- workouts
+- XP
+- level
 
-количество тренировок
+---
 
-XP
-
-уровень
-
-Пример уведомления
-⏰ Через 10 минут
+# Example Notification
+⏰ In 10 minutes
 
 Deep Work Data Science
 08:00–10:30
-Архитектура проекта
 
-Проект построен по принципам разделения слоев:
 
+---
+
+# Architecture
+
+Project structure:
 app
- ├ bot
- │  ├ handlers
- │  ├ keyboards
- │  └ routers
- ├ db
- ├ repositories
- ├ services
- ├ jobs
- └ main.py
-Основные компоненты
+├ bot
+│ ├ handlers
+│ ├ keyboards
+│ └ routers
+├ db
+├ repositories
+├ services
+├ jobs
+└ main.py
 
-handlers
-Telegram команды
 
-services
-бизнес-логика (CalDAV, XP)
+### Layers
 
-repositories
-работа с базой данных
+**handlers**
 
-jobs
-фоновые процессы (poller календаря)
+Telegram commands
 
-db
-инициализация SQLite
+**services**
 
-Используемые технологии
+Business logic (CalDAV integration, XP system)
 
-Python 3.11
+**repositories**
 
-aiogram 3
+Database access layer
 
-CalDAV
+**jobs**
 
-SQLite
+Background tasks (calendar polling)
 
-Docker
+---
 
-Telegram Bot API
+# Tech Stack
+
+- Python 3.11
+- aiogram v3
+- CalDAV
+- SQLite
+- Docker
+- Telegram Bot API
+
+---
+
+# Installation
+
+Clone repository:
+git clone https://github.com/akashi-xD/bu-task-bot.git
+cd bu-task-bot
+
+
+Create `.env` file:
+TELEGRAM_BOT_TOKEN=
+CALDAV_URL=https://caldav.yandex.ru
+CALDAV_USERNAME=
+CALDAV_PASSWORD=
+CALENDAR_NAME=
+TIMEZONE=Asia/Yakutsk
+POLL_SECONDS=30
+REMIND_MINUTES=10
+LOOKAHEAD_HOURS=24
+DB_PATH=/app/data/bot.sqlite3
+
+
+Run with Docker:
+docker compose up --build -d
+Check logs:
+docker compose logs -f
+
+---
+
+# Development
+
+Run locally:
+python -m app.main
+
+---
+
+# Roadmap
+
+Planned features:
+
+- daily productivity reminder
+- weekly productivity report
+- streak tracking
+- analytics dashboard
