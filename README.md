@@ -1,3 +1,7 @@
+![Python](https://img.shields.io/badge/python-3.11-blue)
+![Docker](https://img.shields.io/badge/docker-ready-blue)
+![Telegram](https://img.shields.io/badge/telegram-bot-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
 BU! Telegram Productivity Assistant
 
 Telegram-бот для управления расписанием, уведомлений из календаря и трекинга саморазвития.
